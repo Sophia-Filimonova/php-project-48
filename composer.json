@@ -6,7 +6,9 @@
             "Hexlet\\Code\\": "src/"
         },
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Differ.php",
+            "src/Formaters/Stylish.php"
         ]
     },
     "authors": [
