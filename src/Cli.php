@@ -4,7 +4,7 @@ namespace Gendiff\Cli;
 
 function parseArguments()
 {
-  $doc = <<<DOC
+    $doc = <<<DOC
   Generate diff
 
 Usage:
@@ -18,7 +18,7 @@ Options:
   --format <fmt>                Report format [default: stylish]
 
 DOC;
-  $args = \Docopt::handle($doc, array('version'=>'1.0'));
-  return $args;
+    $args = \Docopt::handle($doc, array('version' => '1.0'));
+    return $args;
   // print_r($args);
 }
