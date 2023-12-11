@@ -10,3 +10,9 @@ use function Gendiff\Differ\genDiff;
 $args = parseArguments();
 $diff = genDiff($args['<firstFile>'], $args['<secondFile>']);
 print_r($diff);
+
+// use Symfony\Component\Yaml\Yaml;
+
+// $array = json_decode(file_get_contents('tests/fixtures/file2_plain.json'), true);
+// $yaml = Yaml::dump($array);
+// file_put_contents('tests/fixtures/file2_plain.yaml', $yaml);

@@ -3,6 +3,7 @@
 namespace Gendiff\Differ;
 
 use function Gendiff\Formaters\Stylish\stylish;
+use function Gendiff\Parsers\parseFile;
 
 function generateDiffTree($data1, $data2)
 {
@@ -34,14 +35,8 @@ function generateDiffTree($data1, $data2)
 
 function genDiff($pathToFile1, $pathToFile2)
 {
-    if (!str_starts_with($pathToFile1, '/')) {
-        $pathToFile1 = getcwd() . '/' . $pathToFile1;
-    }
-    if (!str_starts_with($pathToFile2, '/')) {
-        $pathToFile2 = getcwd() . '/' . $pathToFile2;
-    }
-    $data1 = json_decode(file_get_contents($pathToFile1), true);
-    $data2 = json_decode(file_get_contents($pathToFile2), true);
+    $data1 = parseFile($pathToFile1);
+    $data2 = parseFile($pathToFile2);
     $diffTree = generateDiffTree($data1, $data2);
 
     return \Gendiff\Formaters\Stylish\stylish($diffTree);
