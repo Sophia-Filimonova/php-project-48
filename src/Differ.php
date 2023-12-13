@@ -41,6 +41,7 @@ function genDiff($pathToFile1, $pathToFile2, $format = 'stylish')
     $data2 = parseFile($pathToFile2);
     $diffTree = generateDiffTree($data1, $data2);
     // print_r($diffTree);
+    file_put_contents('/home/sofia/PHP/php-project-48/tests/fixtures/1', json_encode($diffTree));
     $result = formatResult($diffTree, $format);
     // print_r($result);
     return $result;

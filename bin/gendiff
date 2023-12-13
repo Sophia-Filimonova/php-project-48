@@ -11,3 +11,4 @@ $args = parseArguments();
 $diff = genDiff($args['<firstFile>'], $args['<secondFile>'], $args['--format']);
 print_r($diff);
 echo "\n";
+

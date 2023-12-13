@@ -74,18 +74,18 @@ class DifferTest extends TestCase
                 'plain',
                 'result_plain.txt'
             ],
-            // [
-            //     'file1.json',
-            //     'file2.json',
-            //     'json',
-            //     'resultJson.txt'
-            // ],
-            // [
-            //     'file1.yaml',
-            //     'file2.yaml',
-            //     'json',
-            //     'resultJson.txt'
-            // ],
+            [
+                'file1.json',
+                'file2.json',
+                'json',
+                'result_json.txt'
+            ],
+            [
+                'file1.yaml',
+                'file2.yaml',
+                'json',
+                'result_json.txt'
+            ],
         ];
     }
 }
