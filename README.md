@@ -12,7 +12,7 @@ Difference Calculator is a command line tool for finding differences in configur
   
   gendiff (-v|--version)
   
-  gendiff [--format <fmt>] <firstFile> <secondFile>
+  gendiff [--format &lt;fmt&gt;] &lt;firstFile&gt; &lt;secondFile&gt;
   
 ### Report formats:
 <ul>

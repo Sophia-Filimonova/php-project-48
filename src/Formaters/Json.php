@@ -1,6 +1,6 @@
 <?php
 
-namespace Gendiff\Formaters\Json;
+namespace Differ\Formaters\Json;
 
 function formatJson($tree)
 {

@@ -4,8 +4,8 @@
 $autoloadPath = __DIR__ . '/../vendor/autoload.php';
 require_once $autoloadPath;
 
-use function Gendiff\Cli\parseArguments;
-use function Gendiff\Differ\genDiff;
+use function Differ\Cli\parseArguments;
+use function Differ\Differ\genDiff;
 
 $args = parseArguments();
 $diff = genDiff($args['<firstFile>'], $args['<secondFile>'], $args['--format']);

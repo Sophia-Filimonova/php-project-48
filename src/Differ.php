@@ -1,9 +1,9 @@
 <?php
 
-namespace Gendiff\Differ;
+namespace Differ\Differ;
 
-use function Gendiff\Formaters\formatResult;
-use function Gendiff\Parsers\parseFile;
+use function Differ\Formaters\formatResult;
+use function Differ\Parsers\parseFile;
 
 function generateDiffTree($data1, $data2)
 {

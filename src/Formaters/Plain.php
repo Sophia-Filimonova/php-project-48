@@ -1,6 +1,6 @@
 <?php
 
-namespace Gendiff\Formaters\Plain;
+namespace Differ\Formaters\Plain;
 
 function convertToStr($value)
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Gendiff\Formaters;
+namespace Differ\Formaters;
 
-use function Gendiff\Formaters\Stylish\formatStylish;
-use function Gendiff\Formaters\Plain\formatPlain;
-use function Gendiff\Formaters\Json\formatJson;
+use function Differ\Formaters\Stylish\formatStylish;
+use function Differ\Formaters\Plain\formatPlain;
+use function Differ\Formaters\Json\formatJson;
 
 function formatResult(array $tree, string $format): string
 {

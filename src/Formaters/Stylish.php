@@ -1,6 +1,6 @@
 <?php
 
-namespace Gendiff\Formaters\Stylish;
+namespace Differ\Formaters\Stylish;
 
 function convertToStr($value, $indent)
 {
