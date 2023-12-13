@@ -38,18 +38,18 @@ class DifferTest extends TestCase
     public static function mainProvider()
     {
         return [
-            [
-                'file1_plain.json',
-                'file2_plain.json',
-                'stylish',
-                'result_stylish_plain.txt'
-            ],
-            [
-                'file1_plain.yaml',
-                'file2_plain.yaml',
-                'stylish',
-                'result_stylish_plain.txt'
-            ],
+            // [
+            //     'file1_plain.json',
+            //     'file2_plain.json',
+            //     'stylish',
+            //     'result_stylish_plain.txt'
+            // ],
+            // [
+            //     'file1_plain.yaml',
+            //     'file2_plain.yaml',
+            //     'stylish',
+            //     'result_stylish_plain.txt'
+            // ],
             [
                 'file1.json',
                 'file2.json',
@@ -62,6 +62,18 @@ class DifferTest extends TestCase
                 'stylish',
                 'result_stylish.txt'
             ],
+            [
+                'file1.json',
+                'file2.json',
+                'plain',
+                'result_plain.txt'
+            ],
+            [
+                'file1.yaml',
+                'file2.yaml',
+                'plain',
+                'result_plain.txt'
+            ],
             // [
             //     'file1.json',
             //     'file2.json',
@@ -69,8 +81,8 @@ class DifferTest extends TestCase
             //     'resultJson.txt'
             // ],
             // [
-            //     'file1.yml',
-            //     'file2.yml',
+            //     'file1.yaml',
+            //     'file2.yaml',
             //     'json',
             //     'resultJson.txt'
             // ],

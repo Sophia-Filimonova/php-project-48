@@ -34,8 +34,10 @@ function walkTree(array $tree, int $depth = 0)
     $indent = str_repeat('    ', $depth);
     $lines = array_map(
         function ($node) use ($indent, $depth) {
-            ['action' => $action, 'key' => $key, 'value1' => $value1] = $node;
-            $normalizedValue1 = convertToStr($value1, $indent);
+            ['action' => $action, 'key' => $key] = $node;
+            if (array_key_exists('value1', $node)) {
+                $normalizedValue1 = convertToStr($node['value1'], $indent);
+            }
             switch ($action) {
                 case 'nested':
                     return "{$indent}    {$key}: " . walkTree($node['children'], $depth + 1);

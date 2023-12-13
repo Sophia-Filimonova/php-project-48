@@ -8,12 +8,6 @@ use function Gendiff\Cli\parseArguments;
 use function Gendiff\Differ\genDiff;
 
 $args = parseArguments();
-print_r($args);
 $diff = genDiff($args['<firstFile>'], $args['<secondFile>'], $args['--format']);
 print_r($diff);
-
-// use Symfony\Component\Yaml\Yaml;
-
-// $array = json_decode(file_get_contents('tests/fixtures/file2.json'), true);
-// $yaml = Yaml::dump($array, 5);
-// file_put_contents('tests/fixtures/file2.yaml', $yaml);
+echo "\n";
