@@ -2,15 +2,14 @@
 
 namespace Gendiff\Differ;
 
-use function Gendiff\Formaters\Stylish\stylish;
+use function Gendiff\Formaters\formatResult;
 use function Gendiff\Parsers\parseFile;
 
 function generateDiffTree($data1, $data2)
 {
     $keys = array_unique(array_merge(array_keys($data1), array_keys($data2)));
     sort($keys);
-    $tree = [];
-    foreach ($keys as $key) {
+    $tree = array_map(function ($key) use ($data1, $data2) {
         $node = ['key' => $key];
         if (!array_key_exists($key, $data1)) {
             $node['action'] = 'added';
@@ -19,7 +18,10 @@ function generateDiffTree($data1, $data2)
             $node['action'] = 'removed';
             $node['value1'] = $data1[$key];
         } else {
-            if ($data1[$key] === $data2[$key]) {
+            if (is_array($data1[$key]) and is_array($data2[$key])) {
+                $node['action'] = 'nested';
+                $node['children'] = generateDiffTree($data1[$key], $data2[$key]);
+            } elseif ($data1[$key] === $data2[$key]) {
                 $node['action'] = 'same';
                 $node['value1'] = $data1[$key];
             } else {
@@ -28,18 +30,20 @@ function generateDiffTree($data1, $data2)
                 $node["value2"] = $data2[$key];
             }
         }
-        $tree[] = $node;
-    }
+        return $node;
+    }, $keys);
     return $tree;
 }
 
-function genDiff($pathToFile1, $pathToFile2)
+function genDiff($pathToFile1, $pathToFile2, $format = 'stylish')
 {
     $data1 = parseFile($pathToFile1);
     $data2 = parseFile($pathToFile2);
     $diffTree = generateDiffTree($data1, $data2);
-
-    return \Gendiff\Formaters\Stylish\stylish($diffTree);
+    // print_r($diffTree);
+    $result = formatResult($diffTree, $format);
+    // print_r($result);
+    return $result;
 }
 
 /* def generate_diff_tree(data1, data2):
