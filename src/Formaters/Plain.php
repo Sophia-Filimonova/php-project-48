@@ -16,7 +16,7 @@ function convertToStr($value)
     if (is_array($value)) {
         return '[complex value]';
     }
-    return "'$value'";
+    return is_numeric($value) ? $value : "'$value'";
 }
 
 function walkTree(array $tree, array $path = [])
