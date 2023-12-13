@@ -38,18 +38,6 @@ class DifferTest extends TestCase
     public static function mainProvider()
     {
         return [
-            // [
-            //     'file1_plain.json',
-            //     'file2_plain.json',
-            //     'stylish',
-            //     'result_stylish_plain.txt'
-            // ],
-            // [
-            //     'file1_plain.yaml',
-            //     'file2_plain.yaml',
-            //     'stylish',
-            //     'result_stylish_plain.txt'
-            // ],
             [
                 'file1.json',
                 'file2.json',
