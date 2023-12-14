@@ -38,3 +38,4 @@ $ make install
 ```
 
 ### Example:
+[![asciicast](https://asciinema.org/a/gfZ97AyOkJ43HVLr8WAwqqrZc.svg)](https://asciinema.org/a/gfZ97AyOkJ43HVLr8WAwqqrZc)
