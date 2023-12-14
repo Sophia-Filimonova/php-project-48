@@ -2,7 +2,7 @@
 
 namespace Differ\Formaters\Plain;
 
-function convertToStr($value)
+function convertToStr(mixed $value)
 {
     if ($value === true) {
         return 'true';
@@ -26,9 +26,6 @@ function walkTree(array $tree, array $path = [])
             $path[] = $node['key'];
             $fullPath = implode('.', $path);
             switch ($node['action']) {
-                case 'same':
-                    $result = '';
-                    break;
                 case 'added':
                     $normValue = convertToStr($node["value1"]);
                     $result = "Property '$fullPath' was added with value: $normValue";
@@ -43,6 +40,9 @@ function walkTree(array $tree, array $path = [])
                     break;
                 case 'nested':
                     $result = walkTree($node["children"], $path);
+                    break;
+                default:
+                    $result = '';
             }
             // array_pop($path);
             return $result;

@@ -2,7 +2,7 @@
 
 namespace Differ\Formaters\Stylish;
 
-function convertToStr($value, $indent)
+function convertToStr(mixed $value, string $indent)
 {
     if ($value === true) {
         return 'true';
@@ -35,9 +35,9 @@ function walkTree(array $tree, int $depth = 0)
     $lines = array_map(
         function ($node) use ($indent, $depth) {
             ['action' => $action, 'key' => $key] = $node;
-            if (array_key_exists('value1', $node)) {
-                $normalizedValue1 = convertToStr($node['value1'], $indent);
-            }
+            $normalizedValue1 = array_key_exists('value1', $node)
+                ? convertToStr($node['value1'], $indent)
+                : '';
             switch ($action) {
                 case 'nested':
                     return "{$indent}    {$key}: " . walkTree($node['children'], $depth + 1);
@@ -61,7 +61,7 @@ function walkTree(array $tree, int $depth = 0)
     return implode("\n", $result);
 }
 
-function formatStylish($tree)
+function formatStylish(array $tree)
 {
     return walkTree($tree);
 }

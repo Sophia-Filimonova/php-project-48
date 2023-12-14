@@ -5,7 +5,7 @@ namespace Differ\Differ;
 use function Differ\Formaters\formatResult;
 use function Differ\Parsers\parseFile;
 
-function generateDiffTree($data1, $data2)
+function generateDiffTree(array $data1, array $data2)
 {
     $keys = array_unique(array_merge(array_keys($data1), array_keys($data2)));
     sort($keys);
@@ -35,7 +35,7 @@ function generateDiffTree($data1, $data2)
     return $tree;
 }
 
-function genDiff($pathToFile1, $pathToFile2, $format = 'stylish')
+function genDiff(string $pathToFile1, string $pathToFile2, string $format = 'stylish')
 {
     $data1 = parseFile($pathToFile1);
     $data2 = parseFile($pathToFile2);
