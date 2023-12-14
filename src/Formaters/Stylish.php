@@ -15,15 +15,15 @@ function convertToStr(mixed $value, string $indent)
     }
     if (is_array($value)) {
         $keys = array_keys($value);
-        $indent = "$indent    ";
+        $newIndent = "$indent    ";
         $lines = array_map(
-            function ($key) use ($value, $indent) {
-                $normalizedValue = convertToStr($value[$key], $indent);
-                return "{$indent}    {$key}: {$normalizedValue}";
+            function ($key) use ($value, $newIndent) {
+                $normalizedValue = convertToStr($value[$key], $newIndent);
+                return "{$newIndent}    {$key}: {$normalizedValue}";
             },
             $keys
         );
-        $result = ["{", ...$lines, "{$indent}}"];
+        $result = ["{", ...$lines, "{$newIndent}}"];
         return implode("\n", $result);
     }
     return (string) $value;

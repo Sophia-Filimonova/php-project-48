@@ -23,8 +23,8 @@ function walkTree(array $tree, array $path = [])
 {
     $lines = array_map(
         function ($node) use ($path) {
-            array_push($path, $node['key']);
-            $fullPath = implode('.', $path);
+            $newPath = array_merge($path, [$node['key']]);
+            $fullPath = implode('.', $newPath);
             switch ($node['action']) {
                 case 'added':
                     $normValue = convertToStr($node["value1"]);
@@ -39,12 +39,11 @@ function walkTree(array $tree, array $path = [])
                     $result = "Property '$fullPath' was updated. From $normValue1 to $normValue2";
                     break;
                 case 'nested':
-                    $result = walkTree($node["children"], $path);
+                    $result = walkTree($node["children"], $newPath);
                     break;
                 default:
                     $result = '';
             }
-            // array_pop($path);
             return $result;
         },
         $tree
