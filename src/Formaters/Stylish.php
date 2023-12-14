@@ -15,7 +15,7 @@ function convertToStr(mixed $value, string $indent)
     }
     if (is_array($value)) {
         $keys = array_keys($value);
-        $indent = $indent . '    ';
+        $indent = "$indent    ";
         $lines = array_map(
             function ($key) use ($value, $indent) {
                 $normalizedValue = convertToStr($value[$key], $indent);

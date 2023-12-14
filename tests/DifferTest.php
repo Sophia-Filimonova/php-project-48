@@ -30,7 +30,7 @@ class DifferTest extends TestCase
         $fixture1 = $this->getFixtureFullPath($file1);
         $fixture2 = $this->getFixtureFullPath($file2);
         $diffResult = file_get_contents($this->getFixtureFullPath($expectedResult));
-        $this->assertEquals(genDiff($fixture1, $fixture2, $format), $diffResult);
+        $this->assertEquals($diffResult, genDiff($fixture1, $fixture2, $format));
     }
 
     /**

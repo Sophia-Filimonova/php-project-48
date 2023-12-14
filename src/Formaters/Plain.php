@@ -23,7 +23,7 @@ function walkTree(array $tree, array $path = [])
 {
     $lines = array_map(
         function ($node) use ($path) {
-            $path[] = $node['key'];
+            array_push($path, $node['key']);
             $fullPath = implode('.', $path);
             switch ($node['action']) {
                 case 'added':
